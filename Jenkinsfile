@@ -1,12 +1,7 @@
-pipeline {
-  agent any
-  stages{
+node {
     stage("Build"){
-      steps{
         echo "Build Stage"
-        sh '.gradlew build --no-daemon'
-        archiveArtifacts artifacts: 'dist/trainSchedule.zip' 
-      }
+        sh './gradlew build --no-daemon'
+        archiveArtifacts artifacts: 'dist/trainSchedule.zip'
     }
-  }
 }
